@@ -1,0 +1,208 @@
+.nav {
+  max-width: 124rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: var(--default-font);
+  border-bottom: 1px solid var(--dark-grayish-blue);
+  @media screen and (max-width: 900px) {
+    padding: 1rem 2rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: none;
+  }
+  &__menu-box {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 2rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    cursor: pointer;
+    @media screen and (max-width: 900px) {
+      display: flex;
+    }
+  }
+  &__menu {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    position: relative;
+    transition: 0.5s 0.5s;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      position: absolute;
+      top: 6px;
+      transition: 0.5s;
+    }
+    &::before {
+      content: "";
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      position: absolute;
+      top: -6px;
+      transition: 0.5s;
+    }
+    &--active {
+      background-color: transparent;
+      transition: 0.1s;
+      &::after {
+        top: 0;
+        transform: rotate(135deg);
+      }
+      &::before {
+        top: 0;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+  &__logo-box {
+    margin-right: 4rem;
+    @media screen and (max-width: 900px) {
+      margin-right: 1rem;
+      width: 12rem;
+      min-width: 12rem;
+    }
+  }
+  &__logo {
+    width: 100%;
+    object-fit: contain;
+  }
+  &__desktop {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+    li a {
+      padding: 4rem 0;
+      display: block;
+      text-decoration: none;
+      color: var(--dark-grayish-blue);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        height: 4px;
+        width: 0;
+        background-color: var(--orange);
+        transition: width 0.5s;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  &__mobile-menu {
+    display: none;
+    @media screen and (max-width: 900px) {
+      display: block;
+    }
+  }
+  &__mobile-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--black);
+    opacity: 0;
+    z-index: 900;
+    transform: translateX(-200%);
+    transition: all 1s 0.5s;
+    &--active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 1s;
+    }
+  }
+  &__mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    min-width: 20rem;
+    background-color: #fff;
+    height: 100vh;
+    z-index: 950;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 10rem;
+    transform: translateX(-200%);
+    transition: transform 1s;
+    list-style: none;
+    &--active {
+      transform: translateX(0);
+      transition: transform 1s 0.5s;
+    }
+    li a {
+      text-decoration: none;
+      font-weight: 700;
+      color: black;
+      padding: 1rem 0 1rem 2rem;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 0;
+        width: 4px;
+        transform: translateY(-50%);
+        background-color: var(--orange);
+        transition: height 0.3s;
+      }
+      &:hover::after {
+        height: 100%;
+      }
+    }
+  }
+  &__user-interface {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    @media screen and (max-width: 900px) {
+      gap: 2rem;
+    }
+  }
+  &__cart {
+    transform: translateY(2px);
+  }
+  &__profile-box {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    @media screen and (max-width: 900px) {
+      width: 3rem;
+      height: 3rem;
+    }
+    &:hover {
+      border-color: orange;
+    }
+  }
+
+  &__profile {
+    width: 100%;
+  }
+}
