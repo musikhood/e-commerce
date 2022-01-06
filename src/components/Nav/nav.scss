@@ -1,12 +1,13 @@
 .nav {
   max-width: 124rem;
   margin: 0 auto;
+
   display: flex;
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--default-font);
   border-bottom: 1px solid var(--dark-grayish-blue);
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     padding: 1rem 2rem;
     width: 100%;
     position: fixed;
@@ -16,7 +17,7 @@
   }
   &__menu-box {
     height: 2rem;
-    width: 2rem;
+    min-width: 1.6rem;
     margin-right: 2rem;
     display: none;
     justify-content: center;
@@ -24,7 +25,7 @@
     position: relative;
     z-index: 1000;
     cursor: pointer;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       display: flex;
     }
   }
@@ -33,7 +34,7 @@
     height: 3px;
     background-color: black;
     position: relative;
-    transition: 0.5s 0.5s;
+    transition: 0.5s 0.2s;
     &::after {
       content: "";
       width: 100%;
@@ -41,7 +42,7 @@
       background-color: black;
       position: absolute;
       top: 6px;
-      transition: 0.5s;
+      transition: transform 0.3s;
     }
     &::before {
       content: "";
@@ -50,7 +51,7 @@
       background-color: black;
       position: absolute;
       top: -6px;
-      transition: 0.5s;
+      transition: transform 0.3s;
     }
     &--active {
       background-color: transparent;
@@ -58,16 +59,18 @@
       &::after {
         top: 0;
         transform: rotate(135deg);
+        background-color: var(--dark-grayish-blue);
       }
       &::before {
         top: 0;
         transform: rotate(-135deg);
+        background-color: var(--dark-grayish-blue);
       }
     }
   }
   &__logo-box {
     margin-right: 4rem;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       margin-right: 1rem;
       width: 12rem;
       min-width: 12rem;
@@ -82,7 +85,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       display: none;
     }
     li a {
@@ -111,7 +114,7 @@
   }
   &__mobile-menu {
     display: none;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       display: block;
     }
   }
@@ -144,13 +147,13 @@
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-    padding-top: 10rem;
+    padding-top: 8rem;
     transform: translateX(-200%);
     transition: transform 1s;
     list-style: none;
     &--active {
       transform: translateX(0);
-      transition: transform 1s 0.5s;
+      transition: transform 1s 0.7s;
     }
     li a {
       text-decoration: none;
@@ -179,12 +182,18 @@
     display: flex;
     align-items: center;
     gap: 4rem;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       gap: 2rem;
     }
   }
   &__cart {
     transform: translateY(2px);
+    fill: var(--dark-grayish-blue);
+    cursor: pointer;
+    transition: fill 0.3s;
+    &:hover {
+      fill: black;
+    }
   }
   &__profile-box {
     width: 5rem;
@@ -193,12 +202,12 @@
     border-radius: 50%;
     cursor: pointer;
     transition: border-color 0.3s;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
       width: 3rem;
       height: 3rem;
     }
     &:hover {
-      border-color: orange;
+      border-color: var(--orange);
     }
   }
 

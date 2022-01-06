@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./nav.scss";
 import logo from "../../images/logo.svg";
-import cart from "../../images/icon-cart.svg";
+import { ReactComponent as Cart } from "../../images/icon-cart.svg";
 import profile from "../../images/image-avatar.png";
 
 const Navigation = ({ name }) => {
@@ -29,7 +29,7 @@ const Navigation = ({ name }) => {
 export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 899) {
+    if (window.innerWidth > 699) {
       setShowMenu(false);
     }
   });
@@ -62,7 +62,7 @@ export default function Nav() {
       <Navigation name="nav__desktop" />
       <div className="nav__user-interface">
         <div className="nav__cart-box">
-          <img src={cart} alt="cart" className="nav__cart" />
+          <Cart className="nav__cart" />
         </div>
         <div className="nav__profile-box">
           <img src={profile} alt="profile" className="nav__profile" />
