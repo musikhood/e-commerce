@@ -78,6 +78,9 @@ export default function Nav() {
               setIsCartOpen((prevValue) => !prevValue);
             }}
           />
+          {numberInCart > 0 ? (
+            <div className="nav__products-in-cart">{numberInCart}</div>
+          ) : null}
           {isCartOpen && (
             <div className="nav__cart-content">
               <div className="nav__cart-content-1">Cart</div>
