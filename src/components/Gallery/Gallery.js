@@ -13,6 +13,11 @@ import Picture2 from "../../images/image-product-2.jpg";
 import Picture3 from "../../images/image-product-3.jpg";
 import Picture4 from "../../images/image-product-4.jpg";
 
+import PictureThumb1 from "../../images/image-product-1-thumbnail.jpg";
+import PictureThumb2 from "../../images/image-product-2-thumbnail.jpg";
+import PictureThumb3 from "../../images/image-product-3-thumbnail.jpg";
+import PictureThumb4 from "../../images/image-product-4-thumbnail.jpg";
+
 SwiperCore.use([Navigation]);
 
 const GalleryMobile = () => {
@@ -50,6 +55,30 @@ const GalleryMobile = () => {
   );
 };
 
+const GalleryDesktop = () => {
+  return (
+    <div className="galleryDesktop">
+      <div className="galleryDesktop__main-pic">
+        <img src={Picture1} alt="pic1" />
+      </div>
+      <div className="galleryDesktop__thumbnail-box">
+        <div className="galleryDesktop__thumbnail galleryDesktop__thumbnail--active">
+          <img src={PictureThumb1} alt="thumb1" />
+        </div>
+        <div className="galleryDesktop__thumbnail">
+          <img src={PictureThumb2} alt="thumb2" />
+        </div>
+        <div className="galleryDesktop__thumbnail">
+          <img src={PictureThumb3} alt="thumb3" />
+        </div>
+        <div className="galleryDesktop__thumbnail">
+          <img src={PictureThumb4} alt="thumb4" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Gallery() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -66,5 +95,5 @@ export default function Gallery() {
       setIsMobile(true);
     }
   });
-  return <>{isMobile ? <GalleryMobile /> : null}</>;
+  return <>{isMobile ? <GalleryMobile /> : <GalleryDesktop />}</>;
 }

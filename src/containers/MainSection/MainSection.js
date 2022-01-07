@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./mainSection.scss";
 import { Gallery } from "../../components";
 import IconPlus from "../../images/icon-plus.svg";
 import IconMinus from "../../images/icon-minus.svg";
 import { ReactComponent as Cart } from "../../images/icon-cart.svg";
+import { AppContext } from "../../AppContext";
 
 export default function MainSection() {
+  const { number, setNumber } = useContext(AppContext);
   return (
     <main className="main">
       <div className="main__container-a">
@@ -28,11 +30,22 @@ export default function MainSection() {
         </div>
         <div className="main__buttons">
           <div className="main__number-box">
-            <button className="main__number-button">
+            <button
+              className="main__number-button"
+              onClick={() => {
+                if (number === 0) return;
+                setNumber((prevValue) => prevValue - 1);
+              }}
+            >
               <img src={IconMinus} alt="minus" />
             </button>
-            <p className="main__p main__p--number">0</p>
-            <button className="main__number-button">
+            <p className="main__p main__p--number">{number}</p>
+            <button
+              className="main__number-button"
+              onClick={() => {
+                setNumber((prevValue) => prevValue + 1);
+              }}
+            >
               <img src={IconPlus} alt="plus" />
             </button>
           </div>
