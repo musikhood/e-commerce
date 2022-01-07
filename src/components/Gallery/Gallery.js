@@ -52,7 +52,7 @@ const setActive = (id) => {
   document.querySelectorAll(".galleryDesktop__thumbnail").forEach((item) => {
     item.classList.remove("galleryDesktop__thumbnail--active");
     const klasa = item.getAttribute("id");
-    if (klasa == id) {
+    if (klasa === id) {
       item.classList.add("galleryDesktop__thumbnail--active");
     }
   });

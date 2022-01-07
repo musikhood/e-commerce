@@ -7,7 +7,7 @@ import { ReactComponent as Cart } from "../../images/icon-cart.svg";
 import { AppContext } from "../../AppContext";
 
 export default function MainSection() {
-  const { number, setNumber } = useContext(AppContext);
+  const { number, setNumber, setNumberInCart } = useContext(AppContext);
   return (
     <main className="main">
       <div className="main__container-a">
@@ -49,7 +49,13 @@ export default function MainSection() {
               <img src={IconPlus} alt="plus" />
             </button>
           </div>
-          <button className="main__buy-button">
+          <button
+            className="main__buy-button"
+            onClick={() => {
+              setNumberInCart((prevValue) => prevValue + number);
+              setNumber(0);
+            }}
+          >
             <Cart className="main__cart" />
             Add to cart
           </button>

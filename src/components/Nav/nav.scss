@@ -202,6 +202,7 @@
   }
   &__cart-box {
     position: relative;
+    font-size: 16px !important;
     @media screen and (max-width: 900px) {
       position: static;
     }
@@ -212,7 +213,7 @@
     right: 0;
     transform: translateX(50%);
     width: 32rem;
-    min-height: 25rem;
+    min-height: 20rem;
     background-color: #fff;
     box-shadow: 0 0 3rem #ccc;
     z-index: 800;
@@ -235,6 +236,7 @@
   &__cart-content-2 {
     display: flex;
     flex: 1;
+
     justify-content: center;
     align-items: center;
     font-weight: bold;
@@ -258,5 +260,62 @@
 
   &__profile {
     width: 100%;
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  &__btn {
+    width: 100%;
+    height: 4.5rem;
+    color: white;
+    font-weight: bold;
+    font-family: inherit;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__text {
+    p {
+      font-weight: normal;
+      font-size: 15px;
+    }
+    span {
+      font-weight: bold;
+      color: black;
+    }
+  }
+  &__trashcan {
+    fill: var(--grayish-blue);
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      fill: black;
+    }
+  }
+  &__img-box {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
   }
 }
