@@ -7,6 +7,7 @@
   font-size: 1.6rem;
   font-family: var(--default-font);
   border-bottom: 1px solid var(--dark-grayish-blue);
+
   @media screen and (max-width: 900px) {
     font-size: 1.3rem;
   }
@@ -219,6 +220,14 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+  &__cart-bg {
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
   }
   &__cart-content {
     position: absolute;

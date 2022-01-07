@@ -30,9 +30,15 @@ const Navigation = ({ name }) => {
 };
 
 export default function Nav() {
-  const { isOpen, setIsOpen, numberInCart, setNumberInCart } =
-    useContext(AppContext);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const {
+    isOpen,
+    setIsOpen,
+    numberInCart,
+    setNumberInCart,
+    isCartOpen,
+    setIsCartOpen,
+  } = useContext(AppContext);
+
   window.addEventListener("resize", () => {
     if (window.innerWidth > 699) {
       setIsOpen(false);
@@ -92,42 +98,48 @@ export default function Nav() {
             </div>
           ) : null}
           {isCartOpen && (
-            <div className="nav__cart-content">
-              <div className="nav__cart-content-1">Cart</div>
-              <div className="nav__cart-content-2">
-                {numberInCart === 0 ? (
-                  <div>Your cart is empty.</div>
-                ) : (
-                  <div className="product">
-                    <div className="product__info">
-                      <div className="product__img-box">
-                        <img
-                          src={Product1}
-                          alt="Product 1"
-                          className="product__img"
-                        />
+            <>
+              <div
+                className="nav__cart-bg"
+                onClick={() => setIsCartOpen(false)}
+              ></div>
+              <div className="nav__cart-content">
+                <div className="nav__cart-content-1">Cart</div>
+                <div className="nav__cart-content-2">
+                  {numberInCart === 0 ? (
+                    <div>Your cart is empty.</div>
+                  ) : (
+                    <div className="product">
+                      <div className="product__info">
+                        <div className="product__img-box">
+                          <img
+                            src={Product1}
+                            alt="Product 1"
+                            className="product__img"
+                          />
+                        </div>
+                        <div className="product__text">
+                          <p>Autumn Limited Edition...</p>
+                          <p>
+                            $125.00 x {numberInCart}{" "}
+                            <span>${numberInCart * 125}.00</span>
+                          </p>
+                        </div>
+                        <div
+                          className="product__trashcan-box"
+                          onClick={() =>
+                            setNumberInCart((prevValue) => prevValue - 1)
+                          }
+                        >
+                          <TrashCan className="product__trashcan" />
+                        </div>
                       </div>
-                      <div className="product__text">
-                        <p>Autumn Limited Edition...</p>
-                        <p>
-                          $125.00 x {numberInCart}{" "}
-                          <span>${numberInCart * 125}.00</span>
-                        </p>
-                      </div>
-                      <div
-                        className="product__trashcan-box"
-                        onClick={() =>
-                          setNumberInCart((prevValue) => prevValue - 1)
-                        }
-                      >
-                        <TrashCan className="product__trashcan" />
-                      </div>
+                      <button className="product__btn">Checkout</button>
                     </div>
-                    <button className="product__btn">Checkout</button>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
         <div className="nav__profile-box">

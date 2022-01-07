@@ -1,14 +1,16 @@
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--black);
-  z-index: 1000;
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    z-index: 650;
+  }
   &__content {
-    position: absolute;
+    position: fixed;
+    z-index: 700;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -69,7 +71,7 @@
   &__close-box {
     position: fixed;
     top: -4rem;
-    right: 6.5rem;
+    right: 7.5rem;
     cursor: pointer;
   }
 }

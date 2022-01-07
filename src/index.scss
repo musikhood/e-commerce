@@ -28,6 +28,7 @@ html {
 
 body {
   padding: 0 10rem;
+  z-index: -1;
   @media screen and (max-width: 900px) {
     padding: 0 5rem;
   }

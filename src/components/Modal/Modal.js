@@ -29,63 +29,71 @@ function Modal() {
   const [currentPicture, setCurrentPicture] = useState(Picture1);
   const { setOpenModal } = useContext(AppContext);
   return (
-    <div className="modal">
-      <div className="modal__content">
-        <div
-          className="modal__close-box"
-          onClick={() => {
-            setOpenModal(false);
-          }}
-        >
-          <img src={Close} alt="close" className="modal__close" />
-        </div>
-        <div className="modal__main-pic">
-          <img src={currentPicture} alt="pic1" />
-        </div>
-        <div className="modal__thumbnail-box">
+    <>
+      <div
+        className="modal__bg"
+        onClick={() => {
+          setOpenModal(false);
+        }}
+      ></div>
+      <div className="modal">
+        <div className="modal__content">
           <div
-            className="modal__thumbnail modal__thumbnail--active"
-            id="th1"
+            className="modal__close-box"
             onClick={() => {
-              setActive("th1");
-              setCurrentPicture(Picture1);
+              setOpenModal(false);
             }}
           >
-            <img src={PictureThumb1} alt="thumb1" />
+            <img src={Close} alt="close" className="modal__close" />
           </div>
-          <div
-            className="modal__thumbnail"
-            id="th2"
-            onClick={() => {
-              setActive("th2");
-              setCurrentPicture(Picture2);
-            }}
-          >
-            <img src={PictureThumb2} alt="thumb2" />
+          <div className="modal__main-pic">
+            <img src={currentPicture} alt="pic1" />
           </div>
-          <div
-            className="modal__thumbnail"
-            id="th3"
-            onClick={() => {
-              setActive("th3");
-              setCurrentPicture(Picture3);
-            }}
-          >
-            <img src={PictureThumb3} alt="thumb3" />
-          </div>
-          <div
-            className="modal__thumbnail"
-            id="th4"
-            onClick={() => {
-              setActive("th4");
-              setCurrentPicture(Picture4);
-            }}
-          >
-            <img src={PictureThumb4} alt="thumb4" />
+          <div className="modal__thumbnail-box">
+            <div
+              className="modal__thumbnail modal__thumbnail--active"
+              id="th1"
+              onClick={() => {
+                setActive("th1");
+                setCurrentPicture(Picture1);
+              }}
+            >
+              <img src={PictureThumb1} alt="thumb1" />
+            </div>
+            <div
+              className="modal__thumbnail"
+              id="th2"
+              onClick={() => {
+                setActive("th2");
+                setCurrentPicture(Picture2);
+              }}
+            >
+              <img src={PictureThumb2} alt="thumb2" />
+            </div>
+            <div
+              className="modal__thumbnail"
+              id="th3"
+              onClick={() => {
+                setActive("th3");
+                setCurrentPicture(Picture3);
+              }}
+            >
+              <img src={PictureThumb3} alt="thumb3" />
+            </div>
+            <div
+              className="modal__thumbnail"
+              id="th4"
+              onClick={() => {
+                setActive("th4");
+                setCurrentPicture(Picture4);
+              }}
+            >
+              <img src={PictureThumb4} alt="thumb4" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
