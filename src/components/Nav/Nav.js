@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./nav.scss";
 import logo from "../../images/logo.svg";
 import { ReactComponent as Cart } from "../../images/icon-cart.svg";
@@ -29,12 +29,15 @@ const Navigation = ({ name }) => {
 
 export default function Nav() {
   const { isOpen, setIsOpen } = useContext(AppContext);
-
+  const [isCartOpen, setIsCartOpen] = useState(false);
   window.addEventListener("resize", () => {
     if (window.innerWidth > 699) {
       setIsOpen(false);
     }
   });
+  useEffect(() => {
+    setIsCartOpen(false);
+  }, []);
   return (
     <nav className="nav">
       <div
@@ -64,8 +67,22 @@ export default function Nav() {
       </div>
       <Navigation name="nav__desktop" />
       <div className="nav__user-interface">
-        <div className="nav__cart-box">
-          <Cart className="nav__cart" />
+        <div
+          className="nav__cart-box"
+          onClick={() => {
+            setIsCartOpen((prevValue) => !prevValue);
+          }}
+        >
+          <Cart
+            className="nav__cart"
+            style={isCartOpen ? { fill: "black" } : null}
+          />
+          {isCartOpen && (
+            <div className="nav__cart-content">
+              <div className="nav__cart-content-1">Cart</div>
+              <div className="nav__cart-content-2">Your cart is empty.</div>
+            </div>
+          )}
         </div>
         <div className="nav__profile-box">
           <img src={profile} alt="profile" className="nav__profile" />

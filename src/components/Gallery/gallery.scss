@@ -1,10 +1,5 @@
 .galleryMobile {
   width: 100%;
-  position: relative;
-  transition: z-index 0s 1s;
-  &--active {
-    transition: z-index 0s;
-  }
 }
 
 .swiper {

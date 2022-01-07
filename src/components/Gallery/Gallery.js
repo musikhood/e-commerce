@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import { AppContext } from "../../AppContext";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "./gallery.scss";
@@ -21,14 +20,8 @@ import PictureThumb4 from "../../images/image-product-4-thumbnail.jpg";
 SwiperCore.use([Navigation]);
 
 const GalleryMobile = () => {
-  const { isOpen } = useContext(AppContext);
   return (
-    <div
-      className={
-        isOpen ? "galleryMobile  galleryMobile--active" : "galleryMobile"
-      }
-      style={isOpen ? { zIndex: "-1" } : { zIndex: "1" }}
-    >
+    <div className="galleryMobile">
       <Swiper
         slidesPerView={1}
         loop={true}
