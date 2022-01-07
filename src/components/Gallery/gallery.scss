@@ -72,6 +72,10 @@
     overflow: hidden;
     border: 2px solid transparent;
     cursor: pointer;
+    transition: 0.5s;
+    img {
+      transition: 0.5s;
+    }
     &:hover {
       img {
         opacity: 0.7;
