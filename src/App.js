@@ -8,7 +8,7 @@ function App() {
   const [number, setNumber] = useState(0);
   const [numberInCart, setNumberInCart] = useState(0);
   return (
-    <>
+    <div className={isOpen ? "app--active" : "app"}>
       <AppContext.Provider
         value={{
           isOpen,
@@ -22,7 +22,7 @@ function App() {
         <Nav />
         <MainSection />
       </AppContext.Provider>
-    </>
+    </div>
   );
 }
 

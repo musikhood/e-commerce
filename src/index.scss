@@ -39,3 +39,9 @@ body {
 ::selection {
   background-color: transparent;
 }
+
+.app--active {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}

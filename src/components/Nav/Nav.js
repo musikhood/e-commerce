@@ -38,6 +38,9 @@ export default function Nav() {
       setIsOpen(false);
     }
   });
+  window.addEventListener("scroll", () => {
+    setIsCartOpen(false);
+  });
   useEffect(() => {
     setIsCartOpen(false);
   }, []);
@@ -79,7 +82,14 @@ export default function Nav() {
             }}
           />
           {numberInCart > 0 ? (
-            <div className="nav__products-in-cart">{numberInCart}</div>
+            <div
+              className="nav__products-in-cart"
+              onClick={() => {
+                setIsCartOpen((prevValue) => !prevValue);
+              }}
+            >
+              {numberInCart}
+            </div>
           ) : null}
           {isCartOpen && (
             <div className="nav__cart-content">
