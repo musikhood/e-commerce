@@ -1,0 +1,52 @@
+.galleryMobile {
+  width: 100%;
+  position: relative;
+  transition: z-index 0s 1s;
+  &--active {
+    transition: z-index 0s;
+  }
+}
+
+.swiper {
+  width: 100%;
+  max-width: 37.5rem;
+  height: 30rem;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #fff;
+  object-fit: contain;
+  height: 3.5rem !important;
+  width: 3.5rem !important;
+  border-radius: 50%;
+
+  &::after {
+    content: "" !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+  }
+}
+
+.swiper-button-next::after {
+  background-image: url("../../images/icon-next.svg");
+  background-position: 3px;
+}
+.swiper-button-prev::after {
+  background-image: url("../../images/icon-previous.svg");
+  background-position: 1px;
+}

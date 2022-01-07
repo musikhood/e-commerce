@@ -1,12 +1,15 @@
 .nav {
   max-width: 124rem;
   margin: 0 auto;
-
+  background-color: #fff;
   display: flex;
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--default-font);
   border-bottom: 1px solid var(--dark-grayish-blue);
+  @media screen and (max-width: 900px) {
+    font-size: 1.3rem;
+  }
   @media screen and (max-width: 700px) {
     padding: 1rem 2rem;
     width: 100%;
@@ -14,7 +17,9 @@
     top: 0;
     left: 0;
     border-bottom: none;
+    font-size: 1.6rem;
   }
+
   &__menu-box {
     height: 2rem;
     min-width: 1.6rem;
@@ -34,7 +39,7 @@
     height: 3px;
     background-color: black;
     position: relative;
-    transition: 0.5s 0.2s;
+    transition: all 0.2s;
     &::after {
       content: "";
       width: 100%;
@@ -42,7 +47,7 @@
       background-color: black;
       position: absolute;
       top: 6px;
-      transition: transform 0.3s;
+      transition: all 0.2s;
     }
     &::before {
       content: "";
@@ -51,26 +56,25 @@
       background-color: black;
       position: absolute;
       top: -6px;
-      transition: transform 0.3s;
+      transition: all 0.2s;
     }
     &--active {
       background-color: transparent;
-      transition: 0.1s;
       &::after {
         top: 0;
         transform: rotate(135deg);
-        background-color: var(--dark-grayish-blue);
       }
       &::before {
         top: 0;
         transform: rotate(-135deg);
-        background-color: var(--dark-grayish-blue);
       }
     }
   }
   &__logo-box {
     margin-right: 4rem;
+
     @media screen and (max-width: 700px) {
+      transform: translateY(2px);
       margin-right: 1rem;
       width: 12rem;
       min-width: 12rem;
@@ -128,11 +132,11 @@
     opacity: 0;
     z-index: 900;
     transform: translateX(-200%);
-    transition: all 1s 0.5s;
+    transition: all 0.7s 0.5s;
     &--active {
       opacity: 1;
       transform: translateX(0);
-      transition: all 1s;
+      transition: all 0.7s;
     }
   }
   &__mobile {
@@ -149,11 +153,11 @@
     gap: 2.5rem;
     padding-top: 8rem;
     transform: translateX(-200%);
-    transition: transform 1s;
+    transition: transform 0.8s;
     list-style: none;
     &--active {
       transform: translateX(0);
-      transition: transform 1s 0.7s;
+      transition: transform 0.8s 0.4s;
     }
     li a {
       text-decoration: none;

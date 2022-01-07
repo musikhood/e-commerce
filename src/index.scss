@@ -24,9 +24,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  @media screen and (max-width: 900px) {
-    font-size: 52.5%;
-  }
+
   @media screen and (max-width: 700px) {
     font-size: 62.5%;
   }
@@ -34,8 +32,10 @@ html {
 
 body {
   padding: 0 10rem;
-  height: 200vh;
   @media screen and (max-width: 900px) {
     padding: 0 5rem;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 0;
   }
 }

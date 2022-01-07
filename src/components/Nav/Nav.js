@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./nav.scss";
 import logo from "../../images/logo.svg";
 import { ReactComponent as Cart } from "../../images/icon-cart.svg";
 import profile from "../../images/image-avatar.png";
+import { AppContext } from "../../AppContext";
 
 const Navigation = ({ name }) => {
   return (
@@ -27,32 +28,34 @@ const Navigation = ({ name }) => {
 };
 
 export default function Nav() {
-  const [showMenu, setShowMenu] = useState(false);
+  const { isOpen, setIsOpen } = useContext(AppContext);
+
   window.addEventListener("resize", () => {
     if (window.innerWidth > 699) {
-      setShowMenu(false);
+      setIsOpen(false);
     }
   });
   return (
     <nav className="nav">
       <div
         className="nav__menu-box"
-        onClick={() => setShowMenu((prevValue) => !prevValue)}
+        onClick={() => setIsOpen((prevValue) => !prevValue)}
       >
         <div
-          className={showMenu ? "nav__menu nav__menu--active" : "nav__menu"}
+          className={isOpen ? "nav__menu nav__menu--active" : "nav__menu"}
         ></div>
       </div>
       <div className="nav__mobile-menu">
         <Navigation
-          name={showMenu ? "nav__mobile nav__mobile--active" : "nav__mobile"}
+          name={isOpen ? "nav__mobile nav__mobile--active" : "nav__mobile"}
         />
         <div
           className={
-            showMenu
+            isOpen
               ? "nav__mobile-background nav__mobile-background--active"
               : "nav__mobile-background"
           }
+          onClick={() => setIsOpen(false)}
         ></div>
       </div>
 
