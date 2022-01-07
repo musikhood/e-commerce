@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { AppContext } from "../../AppContext";
+import { Modal } from "../../components";
 
 import "./gallery.scss";
 import "swiper/css";
@@ -60,13 +62,19 @@ const setActive = (id) => {
 
 const GalleryDesktop = () => {
   const [currentPicture, setCurrentPicture] = useState(Picture1);
+  const { openModal, setOpenModal } = useContext(AppContext);
   useEffect(() => {
     setCurrentPicture(Picture1);
     setActive("th1");
   }, []);
   return (
     <div className="galleryDesktop">
-      <div className="galleryDesktop__main-pic">
+      <div
+        className="galleryDesktop__main-pic"
+        onClick={() => {
+          setOpenModal((prevValue) => !prevValue);
+        }}
+      >
         <img src={currentPicture} alt="pic1" />
       </div>
       <div className="galleryDesktop__thumbnail-box">
@@ -111,6 +119,7 @@ const GalleryDesktop = () => {
           <img src={PictureThumb4} alt="thumb4" />
         </div>
       </div>
+      {openModal && <Modal />}
     </div>
   );
 };

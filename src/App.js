@@ -7,6 +7,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [number, setNumber] = useState(0);
   const [numberInCart, setNumberInCart] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className={isOpen ? "app--active" : "app"}>
       <AppContext.Provider
@@ -17,6 +18,8 @@ function App() {
           setNumber,
           numberInCart,
           setNumberInCart,
+          openModal,
+          setOpenModal,
         }}
       >
         <Nav />
